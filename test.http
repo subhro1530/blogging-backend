@@ -10,11 +10,8 @@ Content-Type: application/json
 }
 
 
-
-
 #######
-
-GET http://localhost:4000/api/auth
+POST  http://localhost:4000/api/login
 Content-Type: application/json
 
 {
@@ -22,4 +19,17 @@ Content-Type: application/json
     "password": "888"
 }
 
+
+
+#######
+POST  http://localhost:4000/api/logout
+
+
+
+
+#######
+POST http://localhost:4000/api/protected
+HEADERS:
+    Content-Type: application/json;charset=UTF-8
+    Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpqaiIsInBhc3N3b3JkIjoiJDJiJDEwJDdWNUhpQThDSkhaN3VZTFRwNVFaaS5UdEpEN0F6NjB1bXVCRUcyWDhiRzJHeDlFY1ZhakRtIiwiaWF0IjoxNjg0MjIzNDI2LCJleHAiOjE2ODQyMjQzMjZ9.VLbHOXye3JWgy5r4gTHmg2q8lPaDA3jSdASD96aE9F4
 

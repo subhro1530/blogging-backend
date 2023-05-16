@@ -3,12 +3,13 @@ import IUser from "../Interfaces/User"
 import bcrypt from "bcrypt"
 
 import { createAccessToken, createRefreshToken} from "../Controllers/token"
+import { isAuth } from "../Controllers/isauth"
 import User from "../Models/User"
 
 const router = Router()
 
 
-router.get("/", async (req: Request<IUser>, res: Response):Promise<any> => {
+router.post("/login", async (req: Request<IUser>, res: Response):Promise<any> => {
 
     try {
 
@@ -53,10 +54,36 @@ router.get("/", async (req: Request<IUser>, res: Response):Promise<any> => {
             return
         }
 
-        res.status(500).json({ message: "Internal server error" })
+        res.json({ message: "Internal server error" })
+        return
     }
     
 })
 
+
+router.post("/logout", (req, res) => {
+    try{
+        res.clearCookie("refreshToken", { path: "/refresh_token" })
+        return res.send({ message: "Logged out" })
+    } catch ( e ) {
+        res.json({ message: "Internal server error" })
+    }
+})
+
+
+
+// Protected route for user
+
+router.post("/protected", (req, res) => {
+
+    try{
+        var user = isAuth(req)
+        res.json({ message: "You are authenticated" })
+    } catch( e: any ) {
+        res.status(401).json({ message: e.message })
+        return
+    }
+
+})
 
 export default router
