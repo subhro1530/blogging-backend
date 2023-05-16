@@ -27,10 +27,9 @@ router.post("/", async (req: Request, res: Response): Promise<any> => {
             throw new Error("You need to login first")
             return
         }
-        console.log(req.body)
-        const { title, body, username } = req.body
+        const { title, body, userName } = req.body
 
-        if (!(title || body || username)) {
+        if (!(title || body || userName)) {
             res.json({ msg: "Please fill all the fields" })
             return
         }
@@ -39,12 +38,14 @@ router.post("/", async (req: Request, res: Response): Promise<any> => {
             title: title,
             body: body,
             userEmail: userEmail,
-            userName: username,
+            userName: userName,
         })
 
         post.save()
-        res.json({ msg: "Post created" })
-        return
+            .then((result) =>
+                res.json({ msg: "Post created successfully", result })
+            )
+            .catch((err) => res.json({ msg: err.message }))
     } catch (error: any) {
         if (error.statusCode) {
             res.status(error.status).json({ msg: error.message })

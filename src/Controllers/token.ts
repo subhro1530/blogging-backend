@@ -3,7 +3,7 @@ require('dotenv').config()
 
 
 const createAccessToken = ( email: String, password: String) : String => {
-    return jwt.sign({ email, password }, process.env.ACCESS_TOKEN_SECRET!, { expiresIn: '15m' })
+    return jwt.sign({ email, password }, process.env.ACCESS_TOKEN_SECRET!, { expiresIn: '1d' })
 }
 
 const createRefreshToken = ( email: String, password: String ) : String => {
