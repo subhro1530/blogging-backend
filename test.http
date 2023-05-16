@@ -1,0 +1,25 @@
+## user create request
+
+POST http://localhost:4000/api/user
+Content-Type: application/json
+
+{
+    "name" : "Yana",
+    "email": "jjj",
+    "password": "888"
+}
+
+
+
+
+#######
+
+GET http://localhost:4000/api/auth
+Content-Type: application/json
+
+{
+    "email": "jjj",
+    "password": "888"
+}
+
+
