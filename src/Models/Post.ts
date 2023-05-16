@@ -1,7 +1,6 @@
 import IPost from "../Interfaces/Post"
 import mongoose from "mongoose"
 
-
 const postSchema = new mongoose.Schema<IPost>({
     title: {
         type: String,
@@ -15,10 +14,14 @@ const postSchema = new mongoose.Schema<IPost>({
         type: String,
         required: true,
     },
+    userName: {
+        type: String,
+        required: true,
+    },
     date: {
         type: Date,
-        default: Date.now()
-    }
+        default: Date.now(),
+    },
 })
 
 export default mongoose.model<IPost>("post", postSchema)
