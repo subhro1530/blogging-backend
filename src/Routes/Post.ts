@@ -54,4 +54,16 @@ router.post("/", async (req: Request, res: Response): Promise<any> => {
     }
 })
 
+router.delete("/:id", async (req: Request, res: Response): Promise<any> => {
+
+    try {}
+    catch (error: any) {
+        if (error.statusCode) {
+            res.status(error.status).json({ msg: error.message })
+        }
+        res.json({ msg: error.message })
+    }
+
+})
+
 export default router
