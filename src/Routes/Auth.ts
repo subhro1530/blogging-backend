@@ -38,17 +38,18 @@ router.post(
                             user.password
                         )
 
-                        res.cookie("refreshToken", refreshToken, {
-                            httpOnly: true,
-                            path: "/refresh_token",
-                        })
-                        res.json({
-                            name: user.name,
-                            email: user.email,
-                            accessToken: accessToken,
-                        })
-
-                        return
+                        return res
+                            .cookie("refreshToken", accessToken, {
+                                expires: new Date(Date.now() + 20000),
+                                httpOnly: true,
+                            })
+                            .status(200)
+                            .json({
+                                name: user.name,
+                                email: user.email,
+                                accessToken: accessToken,
+                                id: user._id
+                            })
                     } else {
                         res.status(401).json({ message: "Invalid credentials" })
                         return

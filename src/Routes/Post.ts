@@ -20,6 +20,22 @@ router.get("/", async (req: Request, res: Response): Promise<any> => {
     }
 })
 
+router.get("/:id", async (req: Request, res: Response): Promise<any> => {
+    try {
+        const { id } = req.params
+        const post = await Post.findById(id).exec()
+        if (post) {
+            return res.status(200).json(post)
+        }
+        res.status(404).json({ msg: "Post not found" })
+    } catch (err: any) {
+        if (err.status) {
+            return res.status(err.status).json({ msg: err.message })
+        }
+        return res.status(500).json({ msg: err.message })
+    }
+})
+
 router.post("/", async (req: Request, res: Response): Promise<any> => {
     try {
         const userEmail = isAuth(req)
@@ -27,7 +43,8 @@ router.post("/", async (req: Request, res: Response): Promise<any> => {
             throw new Error("You need to login first")
             return
         }
-        const { title, body, userName } = req.body
+        console.log(req.body)
+        const { title, body, userName} = req.body
 
         if (!(title || body || userName)) {
             res.json({ msg: "Please fill all the fields" })
@@ -55,15 +72,48 @@ router.post("/", async (req: Request, res: Response): Promise<any> => {
 })
 
 router.delete("/:id", async (req: Request, res: Response): Promise<any> => {
-
-    try {}
-    catch (error: any) {
+    try {
+        if (req.params.id) {
+            const post = await Post.findByIdAndDelete(req.params.id)
+            if (post) {
+                res.status(200).json({ msg: "Post deleted successfully" })
+                return
+            }
+            res.status(404).json({ msg: "Post not found" })
+            return
+        }
+        res.status(400).json({ msg: "Please provide an id" })
+    } catch (error: any) {
         if (error.statusCode) {
             res.status(error.status).json({ msg: error.message })
         }
         res.json({ msg: error.message })
     }
+})
 
+router.put("/:id", async (req: Request, res: Response): Promise<any> => {
+    try {
+        if (req.params.id) {
+            const post = await Post.findByIdAndUpdate(
+                req.params.id,
+                {
+                    $set: req.body,
+                },
+                { new: true }
+            )
+            if (post) {
+                res.status(200).json({ msg: "Post updated successfully" })
+                return
+            }
+            res.status(404).json({ msg: "Post not found" })
+            return
+        }
+    } catch (error: any) {
+        if (error.statusCode) {
+            res.status(error.status).json({ msg: error.message })
+        }
+        res.json({ msg: error.message })
+    }
 })
 
 export default router

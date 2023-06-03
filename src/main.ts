@@ -4,17 +4,25 @@ import authRoute from "./Routes/Auth"
 import postRoute from "./Routes/Post"
 import db from "./config/db"
 import cors from "cors"
+import cookieParser from "cookie-parser"
 
 const app = express()
 
 const PORT = 4000
-db()
-
-app.use(cors())
 app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
 
-app.use("/api/user", userRoute)
-app.use("/api/", authRoute)
+db()
+app.use(cookieParser())
+app.use(
+    cors({
+        origin: "http://localhost:3000",
+        credentials: true,
+    })
+)
+
+app.use("/api/user", cors(), userRoute)
+app.use("/api/", cors(), authRoute)
 app.use("/api/post", postRoute)
 
 app.listen(PORT)
