@@ -1,17 +1,19 @@
 <h1 align="center">BLOGSERAD </h1>
+
 <div align="center">
+
+**BLOGSREAD** is a dynamic platform built on the NEXT framework, where users can create and explore blogs from a diverse community of writers.
+
 <img src="./readme_assets/1.png" width="600px" />
+
+The website's efficient rendering and dynamic user interfaces enhance the user experience. Additionally, BLOGSREAD offers Dark Mode, providing users with a visually appealing and comfortable alternative theme for reading and interacting with the content.
+
 </div>
 
 ### Prerequsites
 
-- [Node](https://nodejs.org/)
-- Package Manger e.g. [npm](https://www.npmjs.com/)
-
-
-### Project Description
-
-**BLOGSREAD** is a dynamic platform built on the NEXT framework, where users can create and explore blogs from a diverse community of writers. It fosters the sharing of knowledge, ideas, and experiences among readers. The website's efficient rendering and dynamic user interfaces enhance the user experience. Additionally, BLOGSREAD offers Dark Mode, providing users with a visually appealing and comfortable alternative theme for reading and interacting with the content.
+-   [Node](https://nodejs.org/)
+-   Package Manger e.g. [npm](https://www.npmjs.com/)
 
 ### Features Implemented
 
@@ -31,12 +33,12 @@
 #### 2. Backend
 
 1. Auth Routes
-   - Login
-   - SignUp
+    - Login
+    - SignUp
 2. User Routes
-   - Create a new blog
-   - Update the blog
-   - Update his credentials
+    - Create a new blog
+    - Update the blog
+    - Update his credentials
 
 ### Technologies and Packages Used
 
@@ -61,17 +63,17 @@ Clone the fronend and backend repositories, cd into both frontend and backend di
 
 ### 1. [Frontend](https://github.com/Yana-Gupta/blogging-frontend)
 
-- Fork the frontend repository
-- Clone the repository (`git clone`)
-- Install the dependencies (`npm install`)
-- Run dev command (`npm run dev`)
+-   Fork the frontend repository
+-   Clone the repository (`git clone`)
+-   Install the dependencies (`npm install`)
+-   Run dev command (`npm run dev`)
 
 ### 2. [Backend](https://github.com/Yana-Gupta/blogging-backend)
 
-- Fork the frontend repositry
-- Clone the repository (`git clone`)
-- Install the dependencies (`npm install`)
-- Run start command (`npm run start`)
+-   Fork the frontend repositry
+-   Clone the repository (`git clone`)
+-   Install the dependencies (`npm install`)
+-   Run start command (`npm run start`)
 
 **NOTE:** Run backend start command before frontend start command.
 
