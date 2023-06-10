@@ -1,21 +1,25 @@
-<h1 align="center">BLOGSERAD </h1>
+# BLOGSERAD
 
 <div align="center">
 
 **BLOGSREAD** is a dynamic platform built on the NEXT framework, where users can create and explore blogs from a diverse community of writers.
 
-<img src="./readme_assets/1.png" width="600px" />
+<img src="./readme_assets/1.png" width="600px" >
 
 The website's efficient rendering and dynamic user interfaces enhance the user experience. Additionally, BLOGSREAD offers Dark Mode, providing users with a visually appealing and comfortable alternative theme for reading and interacting with the content.
 
 </div>
 
-### Prerequsites
+
+## Prerequsites
 
 -   [Node](https://nodejs.org/)
 -   Package Manger e.g. [npm](https://www.npmjs.com/)
 
+
+
 ### Features Implemented
+
 
 #### 1. Frontend
 
@@ -26,11 +30,11 @@ The website's efficient rendering and dynamic user interfaces enhance the user e
 5. User profile route
 6. Light and Dark mode
 7. Error and NotFound page
-   <br />
 
 **NOTE:** User Profile route is only accessible for logged in user.
 
-#### 2. Backend
+
+### 2. Backend
 
 1. Auth Routes
     - Login
@@ -40,6 +44,7 @@ The website's efficient rendering and dynamic user interfaces enhance the user e
     - Update the blog
     - Update his credentials
 
+
 ### Technologies and Packages Used
 
 ### 1. Frontend
@@ -48,7 +53,8 @@ The website's efficient rendering and dynamic user interfaces enhance the user e
 2. Axios
 3. Tailwind CSS
 
-#### 2. Backend
+
+### 2. Backend
 
 1. Node
 2. Express
@@ -56,6 +62,7 @@ The website's efficient rendering and dynamic user interfaces enhance the user e
 4. Mongoose
 5. Bcryptjs
 6. JsonWebToken
+
 
 ### How to run the project on your local setup
 
@@ -77,6 +84,7 @@ Clone the fronend and backend repositories, cd into both frontend and backend di
 
 **NOTE:** Run backend start command before frontend start command.
 
+
 ### Running the test
 
 Tests are written for [backend](https://github.com/Yana-Gupta/blogging-backend).
@@ -86,7 +94,8 @@ Fork, clone and install all the dependencies and run the following command.
 npm run test
 ```
 
-### Contributing
+
+## Contributing
 
 Contributions from the community are highly valued and encouraged, as they play a crucial role in refining and expanding the capabilities of this repository, making it a collaborative hub for continuous improvement and innovation.
 
@@ -96,10 +105,12 @@ Contributions from the community are highly valued and encouraged, as they play 
 4. Push to the Branch (`git push origin feature/FeatureBranch`)
 5. Create a Pull Request
 
-### License
+
+## License
 
 [MIT](https://github.com/Yana-Gupta/blogging-frontend/blob/main/License)
 
-### About
+
+## About
 
 [Yana Gupta](https://dub.sh/yana)
