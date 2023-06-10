@@ -14,12 +14,7 @@ app.use(express.urlencoded({ extended: true }))
 
 db()
 app.use(cookieParser())
-app.use(
-    cors({
-        origin: "http://localhost:3000",
-        credentials: true,
-    })
-)
+app.use(cors({ credentials: true, origin: "http://localhost:3000" }))
 
 app.use("/api/user", cors(), userRoute)
 app.use("/api/", cors(), authRoute)

@@ -50,11 +50,10 @@ router.get("/:id", async (req: Request<IUser>, res: Response): Promise<any> => {
             })
             return
         }
-        res.status(404).json({
-            msg: "User not found",
-        })
     } catch (error) {
-        console.log("Error fetching user", error)
+        res.status(400).json({
+            msg: "Unable to find",
+        })
     }
 })
 

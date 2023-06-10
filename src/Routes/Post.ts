@@ -7,7 +7,7 @@ const router = Router()
 router.get("/", async (req: Request, res: Response): Promise<any> => {
     try {
         const posts = await Post.find()
-        res.json(posts)
+        res.status(200).json(posts)
         return
     } catch (e: any) {
         if (e.statusCode) {
@@ -27,17 +27,17 @@ router.get("/:id", async (req: Request, res: Response): Promise<any> => {
         if (post) {
             return res.status(200).json(post)
         }
-        res.status(404).json({ msg: "Post not found" })
     } catch (err: any) {
         if (err.status) {
-            return res.status(err.status).json({ msg: err.message })
+            return res.status(404).json({ msg: err.message })
         }
-        return res.status(500).json({ msg: err.message })
+        return res.status(404).json({ msg: err.message })
     }
 })
 
 router.post("/", async (req: Request, res: Response): Promise<any> => {
     try {
+        
         const userEmail = isAuth(req)
         if (userEmail === null) {
             throw new Error("You need to login first")
@@ -60,7 +60,7 @@ router.post("/", async (req: Request, res: Response): Promise<any> => {
 
         post.save()
             .then((result) =>
-                res.json({ msg: "Post created successfully", result })
+                res.status(201).json({ msg: "Post created successfully", result })
             )
             .catch((err) => res.json({ msg: err.message }))
     } catch (error: any) {
